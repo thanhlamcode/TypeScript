@@ -10,7 +10,19 @@ const app: Express = express();
 const port: number | string = process.env.PORT || 3000;
 
 app.get("/task", async (req: Request, res: Response) => {
-  const task = await Task.find();
+  const task = await Task.find({
+    deleted: false,
+  });
+  res.json(task);
+});
+
+app.get("/task/:id", async (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  const task = await Task.find({
+    _id: id,
+    deleted: false,
+  });
   res.json(task);
 });
 
