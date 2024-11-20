@@ -29,7 +29,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const database = __importStar(require("./config/database"));
-const index_route_1 = __importDefault(require("./ap1/v1/routes/index.route"));
+const index_route_1 = __importDefault(require("./api/v1/routes/index.route"));
 dotenv_1.default.config();
 database.connect();
 const app = (0, express_1.default)();
